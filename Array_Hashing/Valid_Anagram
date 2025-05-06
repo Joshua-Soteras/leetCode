@@ -1,0 +1,30 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        
+        #Base Case
+        if len(s) != len(t):
+            return False
+        
+        dictionary = {}
+
+        for letter in s: 
+            dictionary[letter] = dictionary.get(letter, 0) + 1
+        
+        print(dictionary)
+
+        for letter in t:
+            
+            if letter not in dictionary: 
+                return False 
+                
+            dictionary[letter] -= 1 
+
+            if dictionary[letter] == 0:
+                del dictionary[letter]
+        
+        print(dictionary)
+        
+        return  True if len(dictionary) == 0 else False
+
+        
+        
