@@ -1,0 +1,31 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        
+        '''
+        - isalpha() -> character only
+        -isalnum
+        - tolower() -> lower cases the character 
+        '''
+        #first index
+        i = 0 
+
+        #Second Index
+        j = len(s) - 1
+
+
+        while i < j:
+            
+            if not s[i].isalnum():
+                i += 1
+            elif not s[j].isalnum():
+                j -=1
+            elif s[i].lower() == s[j].lower():
+                i +=1
+                j -=1
+            else:
+                return False
+             
+        
+        #if exists out return false by defautl
+        return True
+
