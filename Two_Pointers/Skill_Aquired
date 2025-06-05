@@ -3,3 +3,20 @@ skill learned
 - max()
 - Two Pointers
 - sorting 
+
+
+
+stack = []
+
+# Push items onto the stack
+stack.append('a')
+stack.append('b')
+stack.append('c')
+
+print("Stack after pushes:", stack)
+
+# Pop items from the stack
+top = stack.pop()
+print("Popped item:", top)
+
+print("Stack after pop:", stack)
