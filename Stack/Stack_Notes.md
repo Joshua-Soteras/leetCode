@@ -24,10 +24,14 @@ using python deque
   - appendleft()
   - just allowing to append left and right 
 
+#Key Fundementals
+
+## Match Statements
 using match 
   match case: 
   else could be written as case _:
 
+## isnumeric() and isdigit()
 Difference between isnumeric and isdigit
   - isnnumeric accounts for isdigit
   - accounts for roman numerals as well
