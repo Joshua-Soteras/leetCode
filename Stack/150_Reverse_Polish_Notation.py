@@ -14,6 +14,13 @@ class Solution:
             Difference between isnumeric and isdigit
                 - isnnumeric accounts for isdigit
                 - accounts for roman numerals as well
+
+            import math.ciel
+            take one argument
+            match.ciel
+
+            Read direction carefully 
+                - truncates towards zero
                     
         '''
 
@@ -32,6 +39,7 @@ class Solution:
                     numTwo = stack.pop()
                     numOne = stack.pop()
                     stack.append(numOne + numTwo)
+                    print()
 
                 #Subtraction 
                 case '-':
@@ -39,13 +47,18 @@ class Solution:
                     numOne = stack.pop()
                     stack.append(numOne - numTwo)
                     
-                
                 #Division
                 case '/':
                     numTwo = stack.pop()
                     numOne = stack.pop()
-                    # // To get floor value (truncates towards zero)
-                    stack.append(numOne // numTwo)
+                    
+                    #Truncates Towards Zero
+                    #Get Ceiling if the result is negative
+                    if (numOne // numTwo) < 0:
+                        stack.append(math.ceil(numOne/numTwo))
+                    #Else get the floor value (number is positive)
+                    else:
+                        stack.append(numOne // numTwo)
                 
                 #Multiplication
                 case '*': 
