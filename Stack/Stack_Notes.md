@@ -22,7 +22,25 @@ using python deque
   - similar methods
   - popleft()
   - appendleft()
-  - just allowing to append left and right 
+  - just allowing to append left and right
+
+```
+from collections import deque
+
+#Appending Elements 
+dq.append(4)        # Adds to the right
+dq.appendleft(0)    # Adds to the left
+print(dq)  # deque([0, 1, 2, 3, 4])
+
+#FIFO
+queue = deque()
+
+queue.append("first")
+queue.append("second")
+
+print(queue.popleft())  # first
+print(queue.popleft())  # second
+```
 
 #Key Fundementals
 
@@ -42,5 +60,7 @@ match.ciel
 
 Read direction carefully 
   - truncates towards zero
+
+
                     
     
