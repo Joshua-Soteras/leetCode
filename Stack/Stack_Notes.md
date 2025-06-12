@@ -40,6 +40,12 @@ queue.append("second")
 
 print(queue.popleft())  # first
 print(queue.popleft())  # second
+
+#Rotate
+dq = deque([1, 2, 3, 4])
+dq.rotate(1)    # Right rotation: deque([4, 1, 2, 3])
+dq.rotate(-1)   # Left rotation: deque([1, 2, 3, 4])
+
 ```
 
 #Key Fundementals
