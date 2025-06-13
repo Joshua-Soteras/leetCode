@@ -10,23 +10,40 @@ class Solution:
         #list replication (or sometimes sequence multiplication) 
         #Store the days for each corressponding day 
         #Days go by index within temperatures list
-        answers = [0] * 4
+        answers = [0] * len(temperatures)
 
         for index in range(len(temperatures)): 
             
             #If the stack is empty, we push the current day 
             if not stack:
                 stack.append(index)
+           
             #If not, compare the top of stack with current day (index)
-            #If the  current temp is higher we will calculate the days waited for warmer 
-            elif temperatures[stack[-1]] < temperatures[index]
+            #Pop Condition: If the  current temp is higher
+            elif temperatures[stack[-1]] < temperatures[index]:
                 
-                #Calculated the days waited by getting the difference
-                daysWaited = index - stack[-1]
+                #Keep popping and calculating days waited for this current warm day
+                while  (stack) and temperatures[stack[-1]] < temperatures[index]:
+                    #Calculated the days waited by getting the difference
+                    daysWaited = index - stack[-1]
 
-                #Store in corresponding day within answer list
-                answer[stack[-1]] = daysWaited 
+                    #Store in corresponding day within answer list
+                    answers[stack[-1]] = daysWaited 
 
-            #or the top number is less than the current temp
-            if (not deque) or stack[-1] <= 
+                    #pop off that low temp of the stack
+                    stack.pop()
+                
+                #Push Current temp onto stack until we find the warmer day/temp
+                stack.append(index)
+            
+            #Push Condition: That current day is lower or the same as the previous day
+            else:
+                stack.append(index)
+
+
+        #return the list of answers 
+        return answers
+
+
+      
         
