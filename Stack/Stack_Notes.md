@@ -67,6 +67,30 @@ match.ciel
 Read direction carefully 
   - truncates towards zero
 
+## Timesort
 
+```
+            Timsort = merge() 
+```
+
+```
+ zip()
+            tuples
+            accessing tuples values 
+            .sort
+            cars = [(10, 2), (8, 4), (0, 1), (5, 1), (3, 3)]
+```
+
+            # Sort by first element (position)
+            cars.sort(key=lambda x: x[0])  # ascending by position
+
+            # Sort by first element descending
+            cars.sort(key=lambda x: x[0], reverse=True)
+
+            tuples 
+            More general form:
+            lambda arguments: expression
+            It's a small function without a name that returns the result of the expression.
+        '''
                     
     
