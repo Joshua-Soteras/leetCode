@@ -6,3 +6,9 @@
   - Numbers
   - Characters (Uppercase + LowerCase)
   - Symbols: !, @, #, etc
+ 
+### Functions for ASCII 
+```
+ord('A')  # returns 65
+chr(65)   # returns 'A'
+```
