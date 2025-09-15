@@ -1,0 +1,84 @@
+#Heap / Priority Queue
+## Properties 
+- height of tree = lg (n)
+- Almost complete binary tree 
+	- cannot have hanging right child
+--- 
+## Functions of Heap
+- **heapify** 
+	- creates minx/max heap properties
+	-  O(lg n ) run time
+- **heapsort**: 
+	- sorts the heap within the array while keeping heap property 
+	- time : O(n lg n)
+		- calling heapify (lg n)  n times 
+- **Heap Insert**
+	- inserts to the most left child 
+	- trickles up 
+	- time: O(1) -> O(n lg n)
+---
+## Python Code
+
+**Needed Library**
+
+```
+import heapq
+```
+
+**Functions/Methods**
+```
+# Create Heap
+arr = [9, 4, 3, 8, 10, 2, 5]
+heapq.heapify(arr)
+
+# Add element
+heapq.heappush(arr, 1)  # Push 1
+print("After push:", arr)
+
+# Remove smallest
+print("Pop:", heapq.heappop(arr))  # Pops 1
+print("Heap now:", arr)
+```
+
+To Max Heapify
+```
+arr = [9, 4, 3, 8, 10, 2, 5]
+max_heap = [-x for x in arr]
+heapq.heapify(max_heap)
+print([-x for x in max_heap])  # Convert back to positives
+
+#finding kth element 
+
+arr = [9, 4, 3, 8, 10, 2, 5]
+k = 3
+
+# k-th smallest element
+kth_smallest = heapq.nsmallest(k, arr)[-1]
+print("k-th smallest:", kth_smallest)
+
+# k-th largest element
+kth_largest = heapq.nlargest(k, arr)[-1]
+print("k-th largest:", kth_largest)
+
+```
+
+**Notes**
+- Default is min heap
+- Does not do heapsort by default 
+- Popping occurs 
+
+---
+
+## When to Use
+
+- Find kth largest , min element in an array 
+- Top  k Elements
+- Dynamic insert / delete
+- partial soring 
+- min/max root access 
+- **When you’re implementing a priority queue**
+	- **Insight:** You want **fast access to the min or max element** without fully sorting the array.
+	- **Example use case:**
+	    - Dijkstra’s algorithm for shortest paths.
+	    - Event-driven simulations.
+	    - Task scheduling   
