@@ -1,0 +1,35 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        
+        
+        #Take low and high from p and q nodse
+        low, high = sorted([p.val,q.val])
+
+        #Preorder Traversal root left right
+        #We have to look at the current node value in order to decided which path to traverse
+        def dfs(node): 
+
+            if low <= node.val <= high: 
+
+                return node
+
+            #if the highest value is lower than our current node, traverse left
+            elif high < node.val: 
+
+                return dfs(node.left)
+            
+            #If the lowest value is higher than our current node, traverse right
+            elif low > node.val:
+
+                return dfs(node.right)
+        
+        return dfs(root)
+
+            
