@@ -1,0 +1,37 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        
+        def dfs(node) -> bool 
+
+            if node.val == subRoot.val: 
+                
+        
+        #travel through subtree along with matching node from main tree 
+        def sub_Dfs(mainNode, subNode) ->bool: 
+            
+            #check the current val return false if not matching 
+            if mainNode.val != subNode.val:
+                return False
+            
+            #traverse left side if both children exist
+            if (subNode.left and mainNode.left): 
+                sub_Dfs(mainNode.left, subNode.left)
+            
+            elif(not subleft ):
+                
+
+
+
+
+
+
+
+
+
+        
