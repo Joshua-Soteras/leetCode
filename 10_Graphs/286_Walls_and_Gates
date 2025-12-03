@@ -1,0 +1,99 @@
+class Solution:
+    def wallsAndGates(self, rooms: List[List[int]]) -> None:
+        """
+
+        Do not return anything, modify rooms in-place instead.
+
+        step 1 analyze
+            - 0 means gate 
+            - obstacle 
+            - 2147483647 means empty room 
+            - we have to preprocess and get all gates and append them to queue
+            - is there at least one gate? 
+            - if no gates return -1 
+            - There is at least one "room" 
+
+        step 2 psuedo code time and space complexity 
+            - deque -> used for queue for bfs 
+            - prerpocess mxn  (traverse 2d array )
+                - if gate found appendn to deque 
+                - appending indicies example:  [0][0]
+
+            - 2nd process: 
+                - case 1: -1 if gate cannot be reached 
+                - case 2:  change value if room explore 
+                    - distance if room is empty
+            
+            - run time: 
+                - preprocess: mxn 
+                - bfs : O(v2) where v is the number of vertices 
+            
+
+        step 3 
+            - code 4
+            
+        step 4 test cases 
+
+
+        Learning / Feedback: 
+
+            - make sure to understand what we are returning
+            - ask yourself the questions of the problem 
+        """
+
+        #from collections import deque -> use this in tech interview 
+        #deque to simulate queue for bfs search
+        q = deque()
+
+        #directions to look in pyton 
+        directions = [(1,0), (-1,0), (0,-1) ,(0,1)] 
+
+        rows = len(rooms)
+        cols = len(rooms[0])
+
+        #copy of the origional 2d array
+        self.rooms = rooms.copy()
+
+        #counter for how far from gate 
+        counter = 0 
+
+        #preprocess 
+        for row in range(rows): 
+
+            for col in range(cols): 
+            
+                #if a gate is found append to deque 
+                if rooms[row][col] == 0: 
+
+                    q.append((row,col)) 
+        
+
+        #BFS 
+        while q: 
+            
+            counter += 1
+
+            for room in range(len(q)): 
+                
+                currRow, currCol = q.popleft()
+
+                #explore directions 
+                for r , c  in directions: 
+                    
+                    #new row and new column location 
+                    nRow, nCol = currRow + r, currCol + c 
+                    
+                    #if out of boundaries or != empty room then skip
+                    if (nRow == rows or nRow < 0)\
+                    or (nCol == cols or nCol < 0)\
+                    or (self.rooms[nRow][nCol] != 2147483647):
+                    
+                        continue 
+                    
+                    #update distance from gate 
+                    self.rooms[nRow][nCol] = counter
+
+                    #add room to queue to explore neighbors
+                    q.append((nRow, nCol))
+
+                
